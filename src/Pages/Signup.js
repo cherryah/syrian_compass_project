@@ -5,7 +5,7 @@ import ReactFlagsSelect from 'react-flags-select';
 import logo from '../Asstes/background.webp'
 import { BsPersonFill } from "react-icons/bs";
 
-const Signup = () => {
+const Signup = () => { 
 
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
