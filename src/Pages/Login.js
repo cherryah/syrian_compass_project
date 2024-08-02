@@ -19,9 +19,13 @@ const Login = () => {
                 email: email,
                 password: password
            })
+            // localStorage.setItem('token',response.data.authorisation.token)    
+            console.log(response.data.user.is_admin)
+            if(response.data.user.is_admin == 1){
             localStorage.setItem('token',response.data.authorisation.token)    
-            console.log(response.data.authorisation.token)
             navigate('/locations')
+            }
+            // navigate('/locations')
             setLoader(false)
         }catch(err){
             console.log(err)
