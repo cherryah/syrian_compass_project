@@ -5,21 +5,24 @@ import logoImage from '../Asstes/Landing.png'
 
 
 const Landing = () => {
+
+  const token = localStorage.getItem('token')
+
   return (     
 <div
   className='w-screen h-screen bg-center bg-no-repeat bg-cover overflow-hidden'
   style={{ backgroundImage: `url(${logoImage})` }}
 >
         <div className='w-[100%] h-16'>
-            <NavBar/>
+            <NavBar/> 
         </div>
         <div className='w-[100%] h-[65%] flex justify-center gap-10 flex-col text-white'>
           <h2 className='pl-24 text-7xl font-bold w-[40%]'>It’s a big world out there!,Go explore.</h2>
           <p className='pl-24 w-[40%]'>Discover new attractions and experiences to match your interests and travel style.</p>
-          <div className='pl-24 w-[40%] flex justify-start gap-10'>
+          {token ? '' :  <div className='pl-24 w-[40%] flex justify-start gap-10'>
             <Link to='/signup' className='w-40 bg-[#ffffff8a] text-black font-bold py-1 rounded-2xl hover:bg-[#ffffff9e] flex justify-center items-center'>Register now</Link>
             <Link to='/login' className='w-40 bg-[#ffffff8a] text-black font-bold py-1 rounded-2xl hover:bg-[#ffffff9e] flex justify-center items-center'>Login</Link>
-                      </div>
+                      </div>}
         </div>
         <div className='w-[93%] h-[25.8%] flex justify-end gap-4 relative'>
           <div className='bg-[#ffffff48] w-56 h-[100%] rounded-t-2xl border border-b-0 border-white shadow-lg shadow-white flex justify-center items-center absolute top-5 right-4 hover:top-0 hover:transition ease-out duration-700'>
