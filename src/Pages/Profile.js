@@ -6,7 +6,7 @@ import ReactFlagsSelect from 'react-flags-select';
 
 const Profile = () => {
 
-    const [edit, setEdit] = useState(true)
+    const [edit, setEdit] = useState(false)
 
   return (
     <div

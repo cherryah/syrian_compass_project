@@ -45,9 +45,9 @@ const NavBar = () => {
             </button>
             {token ? 
             <>
-            <button className='w-10 h-10 bg-[#ffffff58] rounded-full flex justify-center items-center text-[#ffffff]'>
+            <Link to='/profile' className='w-10 h-10 bg-[#ffffff58] rounded-full flex justify-center items-center text-[#ffffff]'>
             <BsPersonFill size={23}/>
-          </button>
+          </Link>
           <button className='w-10 h-10 bg-[#ffffff58] rounded-full flex justify-center items-center text-[#ffffff]' onClick={()=>Logout()}>
           <BsArrowBarRight size={23}/>
         </button>
