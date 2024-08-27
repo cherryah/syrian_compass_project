@@ -5,8 +5,13 @@ import Landing from "./Pages/Landing";
 import Main  from "./Pages/Main";
 import Profile from "./Pages/Profile";
 import Destinations from "./Pages/Destinations";
+import Events from "./Pages/Events"; 
+import Resturants from "./Pages/Resturants"; 
+import Hotels from "./Pages/Hotels";
+import Locations from "./Pages/Locations";
+import Search from './Pages/Search'
 
-// import Test from "./Test";
+// import Test from "./iTest";
 
 function App() {
   return (
@@ -18,7 +23,12 @@ function App() {
         <Route path="/governorate" Component={Main}></Route>
         <Route path="/profile" Component={Profile}></Route>
         <Route path="/destination" Component={Destinations}></Route>
-        {/* <Route path="/" Component={Test}></Route> */}
+        <Route path="/events" Component={Events}></Route>
+        <Route path="/resturants" Component={Resturants}></Route>
+        <Route path="/hotels" Component={Hotels}></Route>
+        <Route path="/locations" Component={Locations}></Route>
+        <Route path="/search" Component={Search}></Route>
+
       </Routes>
     </Router>
   );
