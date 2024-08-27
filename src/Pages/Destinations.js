@@ -23,6 +23,11 @@ const Destinations = () => {
         <div className='w-[100%] h-fit text-white flex justify-center items-center flex-col mt-10'>
             <div className='w-[90%] h-20 flex justify-between items-center'>
                 <h2 className='w-[90%] text-4xl font-semibold'>Destinations</h2>
+                <p>
+                Damascus, the capital of Syria, is one of the world's oldest continuously inhabited cities, rich with over 4,000 years of history. 
+                Known as the "City of Jasmine," it is famous for its ancient landmarks like the Umayyad Mosque, the bustling Al-Hamidiyah Souq, and the beautifully preserved Old City, a UNESCO World Heritage site. The city is a blend of Islamic, Roman, and Ottoman architecture, with traditional houses, gardens, and courtyards.
+                Damascus has been a center of culture, religion, and trade throughout history, and despite recent challenges, it remains a symbol of resilience and beauty in the region
+                </p>
             </div>
             <div className='w-[100%] h-fit flex justify-center items-center flex-col bg-[#d1b798] mt-10'>
             <div className='mt-5 w-[90%]  h-fit gap-14 grid grid-cols-4 pb-5'>
