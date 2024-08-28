@@ -40,10 +40,6 @@ const NavBar = () => {
             <Link to='/events' className='hover:text-[#826950]'>Events</Link>
         </div>
         <div className='w-[25%] flex justify-evenly items-center'>
-            <input type='text' placeholder='search' className='outline-none w-[75%] px-2 py-1.5 rounded-2xl text-white bg-[#ffffff58] placeholder:text-[#ffffff]'/>
-            <button className='w-10 h-10 bg-[#ffffff58] rounded-full flex justify-center items-center text-[#ffffff]'>
-              <BsSearch/>
-            </button>
             <input type='text' placeholder='search' className={`outline-none ${token ? 'w-[40%]' : 'w-[75%]'}  px-2 py-1.5 rounded-2xl text-white bg-[#ffffff58] placeholder:text-[#ffffff]`}/>
             <button className='w-10 h-10 bg-[#ffffff58] rounded-full flex justify-center items-center text-[#ffffff]'>
               <BsSearch/>
