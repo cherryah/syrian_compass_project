@@ -17,6 +17,9 @@ const Card = ({name, img, id, event = false}) => {
     <Link to={event ? `/event_details/${id}` : `/details/${id}`} data-ripple-light="true" type="button" class="select-none rounded-lg bg-[#a5815d] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white">
       Read More
     </Link>
+    <button data-ripple-light="true" type="button" class="select-none rounded-lg bg-[#a5815d] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white">
+      Read More
+    </button>
   </div>
 </div>
   )

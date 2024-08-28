@@ -23,6 +23,7 @@ const Locations = () => {
             img: img
         },
         {
+
             id: 4,
             name: "Machu Picchu",
             img: img
@@ -77,38 +78,7 @@ const Locations = () => {
             name: "Machu Picchu",
             img: img
         },
-        {
-            id: 15,
-            name: "Statue of Liberty",
-            img: img
-        },
-        {
-            id: 16,
-            name: "Colosseum",
-            img: img
-        },
-        {
-            id: 17,
-            name: "Christ the Redeemer",
-            img: img
-        },
-        {
-            id: 18,
-            name: "Santorini",
-            img: img  
-        },
-        {
-            id: 19,
-            name: "Sydney Opera House",
-            img: img 
-        },
-        {
-            id: 20,
-            name: "Pyramids of Giza",
-            img: img
-        }
-    ];
-    
+    ]
     
 
   return (

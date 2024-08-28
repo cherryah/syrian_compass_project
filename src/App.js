@@ -7,6 +7,7 @@ import Events from "./Pages/Events";
 import Details from "./Pages/Details";
 import EventDetails from "./Pages/EventDetails";
 import Search from "./Pages/Search";
+import Profile from "./Pages/Profile";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/details/:id" Component={Details}></Route>
         <Route path="/event_details/:id" Component={EventDetails}></Route>
         <Route path="/search" Component={Search}></Route>
+        <Route path="/profile" Component={Profile}></Route>
       </Routes>
     </Router>
   );
