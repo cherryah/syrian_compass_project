@@ -6,7 +6,7 @@ import logoImage from '../Asstes/Landing.png'
 
 const Landing = () => {
 
-  const token = localStorage.getItem('token')
+  const token =  localStorage.getItem('token')
 
   return (     
 <div
@@ -19,7 +19,12 @@ const Landing = () => {
         <div className='w-[100%] h-[65%] flex justify-center gap-10 flex-col text-white'>
           <h2 className='pl-24 text-7xl font-bold w-[40%]'>It’s a big world out there!,Go explore.</h2>
           <p className='pl-24 w-[40%]'>Discover new attractions and experiences to match your interests and travel style.</p>
-          {token ? '' :  <div className='pl-24 w-[40%] flex justify-start gap-10'>
+          {token ? <div className='pl-24 w-[40%] flex justify-start gap-10'>
+            <Link to='/governorate' className='w-64 bg-[#ffffff8a] text-black font-bold py-1 rounded-2xl hover:bg-[#ffffff9e] flex justify-center items-center'>Start your journey</Link>
+            {/* <Link to='/login' className='w-40 bg-[#ffffff8a] text-black font-bold py-1 rounded-2xl hover:bg-[#ffffff9e] flex justify-center items-center'>Login</Link> */}
+                      </div>
+                       :
+                         <div className='pl-24 w-[40%] flex justify-start gap-10'>
             <Link to='/signup' className='w-40 bg-[#ffffff8a] text-black font-bold py-1 rounded-2xl hover:bg-[#ffffff9e] flex justify-center items-center'>Register now</Link>
             <Link to='/login' className='w-40 bg-[#ffffff8a] text-black font-bold py-1 rounded-2xl hover:bg-[#ffffff9e] flex justify-center items-center'>Login</Link>
                       </div>}

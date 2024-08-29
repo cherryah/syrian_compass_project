@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BsSearch , BsPersonFill, BsArrowBarRight } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({data, data1}) => {
 
   const token = localStorage.getItem('token')
   console.log(token)
@@ -33,10 +33,10 @@ const NavBar = () => {
             <h1 className='font-thin text-3xl font-[Monospace]'>SyrianCompass</h1>
         </div>
         <div className='w-[50%] h-[100%] flex justify-evenly items-center text-lg font-semibold'>
-            <Link to='/locations' className='hover:text-[#826950]'>locations</Link>
-            <Link to='/resturants' className='hover:text-[#826950]'>Resturants</Link>
-            <Link to='/hotels' className='hover:text-[#826950]'>Hotels</Link>
-            <Link to='/events' className='hover:text-[#826950]'>Events</Link>
+            {data || data1 ? <Link to='/governorate' className='hover:text-[#826950]'>Governorate</Link> : ''}
+            {data1 ? <Link to='/destination' className='hover:text-[#826950]'>Destination</Link> : ''}
+            {/* <Link to='/hotels' className='hover:text-[#826950]'>Hotels</Link>
+            <Link to='/events' className='hover:text-[#826950]'>Events</Link> */}
         </div>
         <div className='w-[25%] flex justify-evenly items-center'>
             <input type='text' placeholder='search' className={`outline-none ${token ? 'w-[40%]' : 'w-[75%]'}  px-2 py-1.5 rounded-2xl text-white bg-[#ffffff58] placeholder:text-[#ffffff]`}/>

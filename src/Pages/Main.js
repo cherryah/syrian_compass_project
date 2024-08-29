@@ -40,7 +40,7 @@ const Main = () => {
   return (
     <div className='w-screen h-screen bg-center overflow-x-hidden bg-no-repeat bg-cover bg-[#d1b798]'>
         <div className='w-[100%] h-16'>
-            <NavBar/>
+            <NavBar data={true}/>
         </div>
         <div className='w-[100%] h-fit text-white flex justify-center items-center flex-col mt-10'>
             <div className='w-[90%] h-20 flex justify-between items-center'>

@@ -22,7 +22,7 @@ const Hotels = () => {
   return (
 <div className='w-screen h-screen bg-center overflow-x-hidden bg-no-repeat bg-cover bg-[#d1b798]'>
         <div className='w-[100%] h-16'>
-            <NavBar/>
+            <NavBar data1={true}/>
         </div>
         <div className='w-[100%] h-fit text-white flex justify-center items-center flex-col mt-10'>
             <div className='w-[90%] h-20 flex justify-between items-center'>
@@ -31,7 +31,7 @@ const Hotels = () => {
             <div className='w-[100%] h-fit flex justify-center items-center flex-col bg-[#d1b798] mt-10'>
             <div className='mt-5 w-[90%]  h-fit gap-14 grid grid-cols-4 pb-5'>
             {items.map((item, key) => (
-                <Card name={item.title} img={item.imageUrl}/>
+                <Card name={item.title} img={item.imageUrl} id={item.id} link={`/details/${item.id}`}/>
             ))} 
             </div>
             </div>

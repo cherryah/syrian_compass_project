@@ -39,7 +39,7 @@ const Profile = () => {
 //   style={{ backgroundImage: `url(${logoImage})` }}
 >
         <div className='w-[100%] h-16 mb-10'>
-            <NavBar/>  
+            <NavBar data={true}/>  
         </div>
         <div className='w-[100%] h-[80%] flex justify-center items-center flex-col text-white'>
           <div className='w-[75%] h-[100%] bg-[#212121b7] rounded-2xl flex justify-center items-center flex-col gap-5'>

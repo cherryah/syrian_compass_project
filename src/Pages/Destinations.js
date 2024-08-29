@@ -18,17 +18,17 @@ const Destinations = () => {
   return (
 <div className='w-screen h-screen bg-center overflow-x-hidden bg-no-repeat bg-cover bg-[#d1b798]'>
         <div className='w-[100%] h-16'>
-            <NavBar/>
+            <NavBar data1={true}/>
         </div>
         <div className='w-[100%] h-fit text-white flex justify-center items-center flex-col mt-10'>
-            <div className='w-[90%] h-20 flex justify-between items-center'>
-                <h2 className='w-[90%] text-4xl font-semibold'>Destinations</h2>
-                <p>
+            <div className='w-[90%] min-h-20 h-fit flex justify-between items-center flex-col gap-4 border-b-2 border-[#8c6948b6]'>
+                <h2 className='w-[90%] text-4xl font-semibold '>Destinations</h2>
+                <p className='w-[90%] text-xl font-thin mb-6'>
                 Damascus, the capital of Syria, is one of the world's oldest continuously inhabited cities, rich with over 4,000 years of history. 
                 Known as the "City of Jasmine," it is famous for its ancient landmarks like the Umayyad Mosque, the bustling Al-Hamidiyah Souq, and the beautifully preserved Old City, a UNESCO World Heritage site. The city is a blend of Islamic, Roman, and Ottoman architecture, with traditional houses, gardens, and courtyards.
                 Damascus has been a center of culture, religion, and trade throughout history, and despite recent challenges, it remains a symbol of resilience and beauty in the region
                 </p>
-            </div>
+            </div> 
             <div className='w-[100%] h-fit flex justify-center items-center flex-col bg-[#d1b798] mt-10'>
             <div className='mt-5 w-[90%]  h-fit gap-14 grid grid-cols-4 pb-5'>
             {items.map((item, key) => (

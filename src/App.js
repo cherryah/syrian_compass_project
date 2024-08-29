@@ -10,6 +10,8 @@ import Resturants from "./Pages/Resturants";
 import Hotels from "./Pages/Hotels";
 import Locations from "./Pages/Locations";
 import Search from './Pages/Search'
+import Details from "./Pages/Details";
+import EventDetails from "./Pages/EventDetails";
 
 // import Test from "./iTest";
 
@@ -28,7 +30,8 @@ function App() {
         <Route path="/hotels" Component={Hotels}></Route>
         <Route path="/locations" Component={Locations}></Route>
         <Route path="/search" Component={Search}></Route>
-
+        <Route path="/details/:id" Component={Details}></Route>
+        <Route path="/event_details/:id" Component={EventDetails}></Route>
       </Routes>
     </Router>
   );
