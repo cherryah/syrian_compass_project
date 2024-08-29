@@ -1,11 +1,26 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { BsStarFill } from "react-icons/bs";
 
 const AddData = ({ visible, onClose }) => {
   const [dragging, setDragging] = useState(false);
   const [size, setSize] = useState(false);
   const [type, setType] = useState(false);
-  const [imgs, setImgs] = useState([]); // Changed from object to array
+  const [imgs, setImgs] = useState(''); // Changed from object to array
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [location, setLocation] = useState('')
+  const [rate, setRate] = useState('')
+  const [loader,setLoader] = useState(false)
+  const classes = localStorage.getItem('place')
+
+  const formData = new FormData()
+  formData.append('name', title)
+  formData.append('description', description)
+  formData.append('address', location)
+  formData.append('classification', classes)
+  formData.append('images', imgs[0])
+  formData.append('rate', rate)
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -38,7 +53,7 @@ const AddData = ({ visible, onClose }) => {
       ) {
         setSize(false);
         setType(false);
-        setImgs((prevImgs) => [...prevImgs, droppedFile]); // Append the image to the array
+        setImgs(droppedFile); // Append the image to the array
       }
     }
   };
@@ -48,7 +63,7 @@ const AddData = ({ visible, onClose }) => {
     const newFiles = Array.from(files); // Convert FileList to an array
     const validFiles = newFiles.filter(file => file.size <= 2 * 1024 * 1024 && file.type.startsWith("image/"));
 
-    setImgs((prevImgs) => [...prevImgs, ...validFiles]); // Append valid images to the array
+    setImgs(validFiles); // Append valid images to the array
   };
 
   const handleRemoveImage = (index) => {
@@ -59,7 +74,27 @@ const AddData = ({ visible, onClose }) => {
     });
   };
 
-  console.log('ss', imgs)
+  const AddEventAPI='http://127.0.0.1:8000/api/categories'
+    async function AddEvents(){
+     setLoader(true)
+         try{
+          const response = await axios.post(AddEventAPI, formData, {
+            headers: {
+              "Authorization": `Bearer ${localStorage.getItem('token')}`,
+              "Content-Type": "multipart/form-data",
+            }
+          });
+            // localStorage.setItem('token',response.data.authorisation.token)    
+            console.log(response)
+            // navigate('/locations')
+            setLoader(false)
+        }catch(err){
+            console.log(err)
+            setLoader(false)
+        }
+    }
+
+  console.log('qq', imgs)
 
   if (!visible) return null;
 
@@ -76,19 +111,19 @@ const AddData = ({ visible, onClose }) => {
               <label className='text-lg absolute top-0 left-[10%]'>
                 Title
               </label>
-              <input type='text' className='w-[80%] h-10 border-2 border-[#8c6948b6] rounded-lg p-2 outline-none'/>
+              <input type='text' className='w-[80%] h-10 border-2 border-[#8c6948b6] rounded-lg p-2 outline-none' onChange={(e)=>setTitle(e.target.value)}/>
             </div>
             <div className='w-[100%] h-48 relative flex justify-center items-end mb-5'>
               <label className='text-lg absolute top-0 left-[10%]'>
                 Description
               </label>
-              <textarea className='w-[80%] h-40 border-2 border-[#8c6948b6] rounded-lg p-2 outline-none resize-none'/>
+              <textarea className='w-[80%] h-40 border-2 border-[#8c6948b6] rounded-lg p-2 outline-none resize-none' onChange={(e)=>setDescription(e.target.value)}/>
             </div>
             <div className='w-[100%] h-24 relative flex justify-center items-center mb-8'>
               <label className='text-lg absolute top-0 left-[10%]'>
                 Location
               </label>
-              <input type='text' className='w-[80%] h-10 border-2 border-[#8c6948b6] rounded-lg p-2 outline-none'/>
+              <input type='text' className='w-[80%] h-10 border-2 border-[#8c6948b6] rounded-lg p-2 outline-none' onChange={(e)=>setLocation(e.target.value)}/>
             </div>
             <div
               className="w-[80%] h-44 border-2 border-[#8c6948b6] border-dashed rounded-xl flex justify-center items-center flex-col relative"
@@ -137,7 +172,7 @@ const AddData = ({ visible, onClose }) => {
               <label className='text-lg absolute top-0 left-0'>
                 Stars rating
               </label>
-              <input type='text' className='w-[20%] h-10 border-2 border-[#8c6948b6] rounded-lg p-2 outline-none'/>
+              <input type='text' className='w-[20%] h-10 border-2 border-[#8c6948b6] rounded-lg p-2 outline-none' onChange={(e)=>setRate(e.target.value)}/>
               <label className='text-lg flex justify-center items-center absolute left-[22%]'>
                 <span>/5</span> <BsStarFill color='#FFFF00'/>
               </label>
@@ -150,7 +185,16 @@ const AddData = ({ visible, onClose }) => {
             </div> */}
           </div>
         </div>
-        <button className='w-[75%] h-[8%] rounded-xl text-white text-xl hover:bg-[#8c69488c] bg-[#8c6948b6] flex justify-evenly items-center'>Add</button>
+        <button className='w-[75%] h-[8%] rounded-xl text-white text-xl hover:bg-[#8c69488c] bg-[#8c6948b6] flex justify-evenly items-center' onClick={()=>AddEvents()}>
+        {loader ? <div className='w-[100%] h-[100%] flex justify-center items-center'> <div
+  class=" h-6 w-6 animate-spin rounded-full border border-solid border-current border-r-transparent align-[-0.125em] text-secondary motion-reduce:animate-[spin_1.5s_linear_infinite]"
+  role="status">
+  <span
+    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+    >Loading...</span>
+</div>
+</div> : 'Add'}
+        </button>
       </div>
     </div>
   );

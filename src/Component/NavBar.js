@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 import { BsSearch , BsPersonFill, BsArrowBarRight } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
 
   const token = localStorage.getItem('token')
+  const navigate = useNavigate()
   console.log(token)
 
   const LogoutURlAPI='http://127.0.0.1:8000/api/logout'
@@ -27,7 +28,6 @@ const NavBar = () => {
         }
     }
 
-
   return (
     <div className='w-[100%] h-16 text-[#ffffff] flex justify-evenly items-center bg-[#8c694898] shadow-md shadow-[#8c6948cf] z-50'>
         <div className='w-[20%]'>
@@ -40,8 +40,8 @@ const NavBar = () => {
             <Link to='/events' className='hover:text-[#826950]'>Events</Link>
         </div>
         <div className='w-[25%] flex justify-evenly items-center'>
-            <input type='text' placeholder='search' className={`outline-none ${token ? 'w-[40%]' : 'w-[75%]'}  px-2 py-1.5 rounded-2xl text-white bg-[#ffffff58] placeholder:text-[#ffffff]`}/>
-            <button className='w-10 h-10 bg-[#ffffff58] rounded-full flex justify-center items-center text-[#ffffff]'>
+            <input type='text' placeholder='search' className={`outline-none ${token ? 'w-[40%]' : 'w-[75%]'}  px-2 py-1.5 rounded-2xl text-white bg-[#ffffff58] placeholder:text-[#ffffff]`} onChange={(e)=>localStorage.setItem('search',e.target.value)}/>
+            <button className='w-10 h-10 bg-[#ffffff58] rounded-full flex justify-center items-center text-[#ffffff]' onClick={()=>navigate('/search')}>
               <BsSearch/>
             </button>
             {token ? 

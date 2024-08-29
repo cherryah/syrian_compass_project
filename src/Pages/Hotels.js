@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import NavBar from '../Component/NavBar'
 import Card from '../Component/Card'
 import img from '../Asstes/photo_2024-07-01_16-09-24.jpg'
@@ -7,90 +8,115 @@ import AddData from '../Models/AddData'
 
 const Hotels = () => {
 
-   const sites =  [
-        {
-            name: "Eiffel Tower",
-            img: img
-        },
-        {
-            name: "Great Wall of China",
-            img: img
-        },
-        {
-            name: "Taj Mahal",
-            img: img
-        },
-        {
-            name: "Machu Picchu",
-            img: img
-        },
-        {
-            name: "Statue of Liberty",
-            img: img
-        },
-        {
-            name: "Colosseum",
-            img: img
-        },
-        {
-            name: "Christ the Redeemer",
-            img: img
-        },
-        {
-            name: "Santorini",
-            img: img  
-        },
-        {
-            name: "Sydney Opera House",
-            img: img 
-        },
-        {
-            name: "Pyramids of Giza",
-            img: img
-        },
-        {
-            name: "Eiffel Tower",
-            img: img
-        },
-        {
-            name: "Great Wall of China",
-            img: img
-        },
-        {
-            name: "Taj Mahal",
-            img: img
-        },
-        {
-            name: "Machu Picchu",
-            img: img
-        },
-        {
-            name: "Statue of Liberty",
-            img: img
-        },
-        {
-            name: "Colosseum",
-            img: img
-        },
-        {
-            name: "Christ the Redeemer",
-            img: img
-        },
-        {
-            name: "Santorini",
-            img: img  
-        },
-        {
-            name: "Sydney Opera House",
-            img: img 
-        },
-        {
-            name: "Pyramids of Giza",
-            img: img
-        }
-    ]
+//    const sites =  [
+//         {
+//             name: "Eiffel Tower",
+//             img: img
+//         },
+//         {
+//             name: "Great Wall of China",
+//             img: img
+//         },
+//         {
+//             name: "Taj Mahal",
+//             img: img
+//         },
+//         {
+//             name: "Machu Picchu",
+//             img: img
+//         },
+//         {
+//             name: "Statue of Liberty",
+//             img: img
+//         },
+//         {
+//             name: "Colosseum",
+//             img: img
+//         },
+//         {
+//             name: "Christ the Redeemer",
+//             img: img
+//         },
+//         {
+//             name: "Santorini",
+//             img: img  
+//         },
+//         {
+//             name: "Sydney Opera House",
+//             img: img 
+//         },
+//         {
+//             name: "Pyramids of Giza",
+//             img: img
+//         },
+//         {
+//             name: "Eiffel Tower",
+//             img: img
+//         },
+//         {
+//             name: "Great Wall of China",
+//             img: img
+//         },
+//         {
+//             name: "Taj Mahal",
+//             img: img
+//         },
+//         {
+//             name: "Machu Picchu",
+//             img: img
+//         },
+//         {
+//             name: "Statue of Liberty",
+//             img: img
+//         },
+//         {
+//             name: "Colosseum",
+//             img: img
+//         },
+//         {
+//             name: "Christ the Redeemer",
+//             img: img
+//         },
+//         {
+//             name: "Santorini",
+//             img: img  
+//         },
+//         {
+//             name: "Sydney Opera House",
+//             img: img 
+//         },
+//         {
+//             name: "Pyramids of Giza",
+//             img: img
+//         }
+//     ]
 
     const [show,setShow] = useState(false)
+    const [sites, setSites] = useState([])
+
+    const catagoryAPI='http://127.0.0.1:8000/api/categories/search?classification=hotels'
+    async function catagory(){
+      console.log('ssss')
+         try{
+          const response = await axios.get(catagoryAPI, {
+            headers: {
+              "Authorization": `Bearer ${localStorage.getItem('token')}`,
+              "Content-Type": "multipart/form-data",
+              "Access-Control-Allow-Origin": "*"
+            }
+          });
+            console.log(response.data.data)
+            setSites(response.data.data)
+
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        catagory()
+        localStorage.setItem('place', 'hotels')
+      }, []);
     
 
   return (
