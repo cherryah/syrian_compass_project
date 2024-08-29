@@ -5,7 +5,6 @@ import img from '../Asstes/photo_2024-07-01_16-09-24.jpg'
 import AddData from '../Models/AddData'
 
 
-
 const Resturants = () => {
 
    const sites =  [
@@ -90,9 +89,7 @@ const Resturants = () => {
             img: img
         }
     ]
-
     const [show,setShow] = useState(false)
-    
 
   return (
     <div className='w-screen h-screen bg-center overflow-x-hidden bg-no-repeat bg-cover bg-[#d1b798]'>

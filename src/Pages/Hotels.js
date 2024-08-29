@@ -112,7 +112,6 @@ const Hotels = () => {
             </div>
         </div>
         <AddData onClose={()=>setShow(false)} visible={show}/>
-
     </div>
   )
 }

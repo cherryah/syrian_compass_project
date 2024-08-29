@@ -80,7 +80,6 @@ const Locations = () => {
             img: img
         },
     ]
-
     const [show,setShow] = useState(false)
     
 
