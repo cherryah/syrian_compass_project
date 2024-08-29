@@ -23,6 +23,7 @@ const Signup = () => {
            const response=await axios.post(SignupURlAPI,{
                 email: email,
                 password: password,
+                password_confirmation: password,
                 name: name,
                 phone_number: phone,
                 gender: gender,

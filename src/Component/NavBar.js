@@ -11,8 +11,10 @@ const NavBar = ({data, data1}) => {
   const LogoutURlAPI='http://127.0.0.1:8000/api/logout'
     async function Logout(){
       console.log('ssss')
+      localStorage.clear('token')
+      window.location.reload(); 
          try{
-          const response = await axios.post(LogoutURlAPI, null, {
+          const response = await axios.post(LogoutURlAPI, {
             headers: {
               "Authorization": `Bearer ${localStorage.getItem('token')}`,
               "Content-Type": "multipart/form-data",
@@ -20,8 +22,6 @@ const NavBar = ({data, data1}) => {
             }
           });
             console.log(response)
-            localStorage.removeItem('token')
-            window.location.reload(); 
         }catch(err){
             console.log(err)
         }
